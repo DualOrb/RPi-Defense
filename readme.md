@@ -1,9 +1,9 @@
 # Webcam Feed with Servo Control
 
-This project allows you to control servos using an Xbox controller and stream a live video feed from a USB webcam mounted on a Raspberry Pi. The video feed is displayed in fullscreen with crosshairs overlaid in the center of the screen.
+This project allows you to control / automate a sentry turret (airsoft) using a Raspberry Pi. The video feed is displayed in fullscreen with crosshairs overlaid in the center of the screen.
 
 ## Features
-- Control servos using an Xbox controller.
+- Control servos using an Xbox controller -> lock targets / fire
 - Stream live video feed from a USB webcam.
 - Display video in fullscreen with crosshairs overlay.
 
@@ -13,7 +13,6 @@ This project allows you to control servos using an Xbox controller and stream a 
 - Servos (e.g., SG90, Miuzei Digital Servo MS24)
 - Xbox One Controller
 - Python 3
-- Internet connection for package installation
 
 ## Installation
 
