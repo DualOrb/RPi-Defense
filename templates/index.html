@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webcam Feed</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="video-container">
+        <img id="video" src="/video_feed" alt="Video Feed">
+        <div class="crosshairs"></div>
+        <div class="boxTopLeft box"></div>
+        <div class="boxTopRight box"></div>
+        <div class="boxBottomLeft box"></div>
+        <div class="boxBottomRight box"></div>
+        <div class="overlay-screen"></div>
+    </div>
+    <script>
+        const img = document.getElementById('video');
+        let retryDelay = 1000; // Initial retry delay in milliseconds
+
+        function loadVideo() {
+            img.src = `/video_feed?${new Date().getTime()}`; // Avoid caching
+            img.onerror = function() {
+                console.error("Error loading video");
+                retryDelay = Math.min(retryDelay * 2, 32000); // Exponential backoff, max 32 seconds
+                console.log(`Retrying in ${retryDelay / 1000} seconds...`);
+                setTimeout(loadVideo, retryDelay);
+            };
+            img.onload = function() {
+                console.log("Video loaded successfully");
+                retryDelay = 1000; // Reset delay on successful load
+            };
+        }
+
+        loadVideo();
+    </script>
+</body>
+</html>
