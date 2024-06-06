@@ -1,5 +1,4 @@
-# Webcam Feed with Servo Control
-
+# Raspberry Pi Defense System
 This project allows you to control / automate a sentry turret (airsoft) using a Raspberry Pi. The video feed is displayed in fullscreen with crosshairs overlaid in the center of the screen.
 
 ## Features
